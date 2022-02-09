@@ -7,6 +7,7 @@ public class playerScript : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Vector2 spawn = new Vector2(-7.5f, 3.5f);
     public int maxSpeed = 5;
+    public float jumpForce;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,7 @@ public class playerScript : MonoBehaviour
     {
         if (Input.GetKey("space"))
         {
-            rb.velocity = new Vector2(0f, 5f);
+            rb.velocity = new Vector2(0f, jumpForce);
         }
 
         else if (rb.velocity.y < -maxSpeed) {
