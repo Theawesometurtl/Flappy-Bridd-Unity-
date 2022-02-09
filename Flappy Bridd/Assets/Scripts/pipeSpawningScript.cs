@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class pipeSpawningScript : MonoBehaviour
 {
+    public PlayerScript playerScript;
     [SerializeField] GameObject pipe;
     private float timer = 0;
     [SerializeField] float maxTime;
@@ -15,11 +16,6 @@ public class pipeSpawningScript : MonoBehaviour
         Destroy(newpipe, screenTime);
     }
 
-    void Start()
-    {
-        createPipe();
-    }
-
     void Update()
     {
         timer += Time.deltaTime;
@@ -27,6 +23,7 @@ public class pipeSpawningScript : MonoBehaviour
         if (timer > maxTime) {
             createPipe();
             timer = 0;
+            playerScript.scorePlus1();
         }
     }
 }
