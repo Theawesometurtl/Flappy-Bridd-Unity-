@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayAgainScript : MonoBehaviour
+
+public class PlayAgainButton : MonoBehaviour
 {
-    public void playAgain() {
-        SceneManager.LoadScene(0);
+
+    public void PlayAgain() {
+        SceneManager.LoadScene("SampleScene");
     }
 }
