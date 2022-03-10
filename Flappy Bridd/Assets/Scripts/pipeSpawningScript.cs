@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class pipeSpawningScript : MonoBehaviour
 {
-    public PlayerScript playerScript;
+    [SerializeField] GameObject eventSystem;
+    EventSystem eventSystem = eventSystem.GetComponent<eventSystem>();
+    eventSystem.fitnessScore += 1.0f;
     [SerializeField] GameObject pipe;
     private float timer = 0;
     [SerializeField] float maxTime;
@@ -23,7 +25,6 @@ public class pipeSpawningScript : MonoBehaviour
         if (timer > maxTime) {
             createPipe();
             timer = 0;
-            playerScript.scorePlus1();
         }
     }
 }

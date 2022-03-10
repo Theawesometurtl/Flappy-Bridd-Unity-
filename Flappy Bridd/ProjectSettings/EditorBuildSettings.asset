@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TitleScreen.unity
     guid: 3cefcadd632ee446a93c5006f243670c
+  - enabled: 1
+    path: Assets/Scenes/ROBOT.unity
+    guid: d84fb141b9a05453eb690484b767b308
   m_configObjects: {}
