@@ -57,7 +57,7 @@ private calculatingWeights() {
             
         }
         //adding the node to the nodesList. I SHOULD ALSO CALCULATE THE NODE'S WEIGHT HERE IF I DECIDDE TO DO THAT
-        nodesList.append(nodeValue)
+        nodesList.append(nodeValue);
         
     }
 
@@ -74,6 +74,11 @@ private calculatingWeights() {
 
     void Update()
     {
+        nodesList.append(rb.position.y);
+        nodesList.append(pipeRb.position.x);
+        nodesList.append(pipeRb.position.y);
+        nodesList.append(rb.velocity.y);
+        calculatingWeights();
 
     }
 }
