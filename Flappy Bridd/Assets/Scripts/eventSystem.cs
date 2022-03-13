@@ -9,10 +9,12 @@ public class eventSystem : MonoBehaviour
 
 
     public void playGame() {  
+        Time.timeScale = 1;
         SceneManager.LoadScene("MainPlayableLevel");  
     }  
 
-    public void titleScreen() {  
+    public void titleScreen() { 
+        Time.timeScale = 1; 
         SceneManager.LoadScene("TitleScreen");  
     }  
 

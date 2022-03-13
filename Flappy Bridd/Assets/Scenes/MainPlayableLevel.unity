@@ -1147,8 +1147,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 500, y: 325}
-  m_SizeDelta: {x: -1334, y: -671}
+  m_AnchoredPosition: {x: 475, y: 325}
+  m_SizeDelta: {x: -1250, y: -671}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1736828424
 MonoBehaviour:
@@ -1413,6 +1413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b595827ecf7a4874a9f603cba872bd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverCanvas: {fileID: 1594293207}
   rb: {fileID: 1959207553}
   spawn: {x: 0, y: 3.5}
   maxSpeed: 10
@@ -1710,8 +1711,6 @@ MonoBehaviour:
   maxTime: 2
   screenTime: 8
   fitnessText: {fileID: 1736828424}
-  playerRb: {fileID: 1959207553}
-  gameOverCanvas: {fileID: 1594293207}
 --- !u!4 &2056951389
 Transform:
   m_ObjectHideFlags: 0
