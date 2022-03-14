@@ -30,11 +30,11 @@ public class PlayerScript : MonoBehaviour
     {
         if (Input.GetKey("space"))
         {
-            rb.velocity = new Vector2(0f, jumpForce);
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
 
         else if (rb.velocity.y < -maxSpeed) {
-            rb.velocity = new Vector2(0f, -maxSpeed);
+            rb.velocity = new Vector2(rb.velocity.x, -maxSpeed);
         }
 
         if (rb.position.y > 5) {

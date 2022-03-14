@@ -17,7 +17,7 @@ public class robotScript : MonoBehaviour
 //calculating a column of nodes with their respective weights
 private calculatingWeights() {
     //does this to every node in the column
-    foreach (y in nodesList) {
+    foreach (int y in nodesList()) {
         //resetting weightnum
         weightNum = 0;
         //repeats until it has gone through and calculated with every weight
@@ -79,6 +79,15 @@ private calculatingWeights() {
         nodesList.append(pipeRb.position.y);
         nodesList.append(rb.velocity.y);
         calculatingWeights();
+        calculatingWeights();
+        calculatingWeights();
+
+        //if the jump node is above 0, then it jumps
+        if (nodesList[0] > 0) {
+            rb.velocity = new Vector2(rb.velocity.x, 1f)
+        }
+
+        
 
     }
 }
