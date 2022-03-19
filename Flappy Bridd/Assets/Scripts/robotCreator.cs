@@ -9,7 +9,9 @@ public class robotCreator : MonoBehaviour
     [SerializeField] Vector2 spawn;
     public int maxSpeed = 5;
     public float jumpForce;
-    private int[] neuronsPerColumn = {4, 5, 1};
+    private List<int> neuronsPerColumn = new List<int> {4, 5, 1};
+    private int columnsMinusOne;
+    private int lengthOfNeuronList;
 
 
 
@@ -33,26 +35,34 @@ public class robotCreator : MonoBehaviour
 
 
 
-    public robotBrain fillBrain(int[] neuronsPerColumn) {
+    public robotBrain fillBrain(List<int> neuronsPerColumn) {
         robotBrain robot = new robotBrain();
+        lengthOfNeuronList = neuronsPerColumn.Count;
         //columns
-        for (int columns = 0; columns < neuronsPerColumn.Length; columns++)
+        for (int columns = 0; columns < neuronsPerColumn.Count; columns++)
         {
+            //for the columns in column list add column
             column c = new column();
             robot.columnList.Add(c);
             //neurons
+            
             for (int neurons = 0; neurons < neuronsPerColumn[columns]; neurons++)
             {
+                //for the neurons in the current column specified in the column list add a neuron
                 neuron n = new neuron();
-                //connections (but none for last row)
-                if (neuronsPerColumn.Length != columns) {
-                for (int connections = 0; connections < neuronsPerColumn[columns++]; connections++)
+                //connections (but none for last row) 
+                robot.columnList[columns].neuronList.Add(n);
+                if (columns != 0) {
+                    columnsMinusOne = columns -= 1;
+                    Debug.Log(columns);
+                    //for the neurons in the previous row, add a connection to the current neuron, except for the first row
+                    for (int connections = 0; connections < neuronsPerColumn[columnsMinusOne]; connections++)
                     {
-                        n.connectionWeights.Add(0f);
-                    } 
+                        robot.columnList[columns].neuronList[neurons].connectionWeights.Add(0f);
+                    }
                 }
                 
-                robot.columnList[columns].neuronList.Add(n);
+
             }
         }
         return robot;
@@ -114,7 +124,7 @@ private void createBridd() {
     {
         Time.timeScale = 1;
         robotBrain robot = fillBrain(neuronsPerColumn);
-        Debug.Log(robot);
+        //Debug.Log(robot);
         
     }
 
