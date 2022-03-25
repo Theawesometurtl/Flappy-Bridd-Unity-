@@ -37,10 +37,12 @@ public class robotCreator : MonoBehaviour
 
     public robotBrain fillBrain(List<int> neuronsPerColumn) {
         robotBrain robot = new robotBrain();
-        lengthOfNeuronList = neuronsPerColumn.Count;
+        Debug.Log("start");
+        
         //columns
         for (int columns = 0; columns < neuronsPerColumn.Count; columns++)
         {
+            Debug.Log("column");
             //for the columns in column list add column
             column c = new column();
             robot.columnList.Add(c);
@@ -48,17 +50,21 @@ public class robotCreator : MonoBehaviour
             
             for (int neurons = 0; neurons < neuronsPerColumn[columns]; neurons++)
             {
+                Debug.Log("neuron");
                 //for the neurons in the current column specified in the column list add a neuron
                 neuron n = new neuron();
                 //connections (but none for last row) 
                 robot.columnList[columns].neuronList.Add(n);
+                
                 if (columns != 0) {
                     columnsMinusOne = columns -= 1;
-                    Debug.Log(columns);
                     //for the neurons in the previous row, add a connection to the current neuron, except for the first row
                     for (int connections = 0; connections < neuronsPerColumn[columnsMinusOne]; connections++)
                     {
+                        Debug.Log("connection");
+                        /*
                         robot.columnList[columns].neuronList[neurons].connectionWeights.Add(0f);
+                        */
                     }
                 }
                 
@@ -68,15 +74,6 @@ public class robotCreator : MonoBehaviour
         return robot;
     }
     
-
-
-
-
-
-
-
-
-
 
 
 
@@ -124,7 +121,7 @@ private void createBridd() {
     {
         Time.timeScale = 1;
         robotBrain robot = fillBrain(neuronsPerColumn);
-        //Debug.Log(robot);
+        Debug.Log(robot);
         
     }
 
