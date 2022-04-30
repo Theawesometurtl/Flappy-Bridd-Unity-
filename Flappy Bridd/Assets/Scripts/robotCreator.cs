@@ -9,9 +9,7 @@ public class robotCreator : MonoBehaviour
     [SerializeField] Vector2 spawn;
     public int maxSpeed = 5;
     public float jumpForce;
-    private List<int> neuronsPerColumn = new List<int> {4, 5, 1};
-    private int columnsMinusOne;
-    private int lengthOfNeuronList;
+    private int[] neuronsPerColumn = {4, 5, 1};
 
 
 
@@ -35,21 +33,27 @@ public class robotCreator : MonoBehaviour
 
 
 
-    public robotBrain fillBrain(List<int> neuronsPerColumn) {
+    public robotBrain fillBrain(int[] neuronsPerColumn) {
         robotBrain robot = new robotBrain();
+<<<<<<< HEAD
         Debug.Log("start");
         
+=======
+>>>>>>> parent of 923f4ed (finished creating the robot brains, side error, the game doesn't run)
         //columns
-        for (int columns = 0; columns < neuronsPerColumn.Count; columns++)
+        for (int columns = 0; columns < neuronsPerColumn.Length; columns++)
         {
+<<<<<<< HEAD
             Debug.Log("column");
             //for the columns in column list add column
+=======
+>>>>>>> parent of 923f4ed (finished creating the robot brains, side error, the game doesn't run)
             column c = new column();
             robot.columnList.Add(c);
             //neurons
-            
             for (int neurons = 0; neurons < neuronsPerColumn[columns]; neurons++)
             {
+<<<<<<< HEAD
                 Debug.Log("neuron");
                 //for the neurons in the current column specified in the column list add a neuron
                 neuron n = new neuron();
@@ -68,6 +72,18 @@ public class robotCreator : MonoBehaviour
                         */
                     }
                 }
+=======
+                neuron n = new neuron();
+                //connections (but none for last row)
+                if (neuronsPerColumn.Length != columns) {
+                for (int connections = 0; connections < neuronsPerColumn[columns++]; connections++)
+                    {
+                        n.connectionWeights.Add(0f);
+                    } 
+                }
+                
+                robot.columnList[columns].neuronList.Add(n);
+>>>>>>> parent of 923f4ed (finished creating the robot brains, side error, the game doesn't run)
             }
         }
         return robot;
