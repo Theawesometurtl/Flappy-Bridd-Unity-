@@ -62,13 +62,12 @@ public class robotCreator : MonoBehaviour
                     for (int connections = 0; connections < neuronsPerColumn[columnsMinusOne]; connections++)
                     {
                         Debug.Log("connection");
+                        break;
                         /*
                         robot.columnList[columns].neuronList[neurons].connectionWeights.Add(0f);
                         */
                     }
                 }
-                
-
             }
         }
         return robot;
